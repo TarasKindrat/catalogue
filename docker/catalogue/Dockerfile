@@ -6,7 +6,8 @@ WORKDIR /go/src/github.com/microservices-demo/catalogue
 RUN go get -u github.com/FiloSottile/gvt
 RUN gvt restore && \
     #CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /app github.com/microservices-demo/catalogue/cmd/cataloguesvc
-    CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /app github.com/TarasKindrat/catalogue/tree/master/cmd/cataloguesvc
+    #CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /app  github.com/microservices-demo/catalogue/
+    CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /app github.com/microservices-demo/catalogue/tree/master/cmd/cataloguesvc
 FROM alpine:3.4
 
 ENV	SERVICE_USER=myuser \
